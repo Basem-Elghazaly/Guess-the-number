@@ -15,6 +15,7 @@ body {
   background-image: url(./games_guess_the_number.png);
   background-size: contain;
   background-position: center;
+  overflow: hidden;
   .overlay {
     position: absolute;
     width: 100%;
@@ -25,9 +26,6 @@ body {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.882);
     z-index: -1;
-    @include breakpoints() {
-      width: 105vw;
-    }
   }
 }
 %btn {
@@ -130,7 +128,7 @@ main {
       width: 120px;
       height: 60px;
       padding-left: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
       font-size: 30px;
       border: 2px solid #ddd;
       background-color: transparent;
@@ -139,8 +137,8 @@ main {
         box-shadow: 0 0 5px 1px white;
       }
       @include breakpoints() {
-        padding-left: 12px;
-        margin: 15px auto;
+        margin: 25px auto;
+        font-size: 22px;
       }
     }
     .btn {
@@ -160,16 +158,22 @@ main {
   .right {
     .message {
       font-size: 30px;
+      @include breakpoints() {
+        font-size: 22px;
+      }
     }
     .label-score {
       margin: 20px 0 10px 0;
       font-size: 26px;
+      @include breakpoints() {
+        font-size: 22px;
+      }
     }
     .label-highscore {
       font-size: 26px;
-    }
-    @include breakpoints() {
-      margin-top: -20px;
+      @include breakpoints() {
+        font-size: 22px;
+      }
     }
   }
 }
