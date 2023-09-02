@@ -16,8 +16,8 @@ const bigScore = document.querySelector(".big-score");
 /*
 - Make a random number from 1 to 20.
 - Check the entered number if equals the random number.
-- If number is higher than the random, Execute a condition. if lower execute   
-  another condition, else execute Correct number.
+- If number is higher than the random, Execute a condition. if lower, execute   
+  another condition. else, execute Correct number.
 */
 
 // Check if local storage has data or not.
@@ -39,23 +39,22 @@ btn.addEventListener("click", () => check());
 function check() {
     if (myNumber.value > 0 && myNumber.value < 21) {
         if (myNumber.value > randomNumber) {
-            message.textContent = `👆 too high`;
-            decrease();
-            myNumber.focus();
+            message.textContent = `too high!`;
+            decAndFocus();
+            clearInput();
         }
         else if (myNumber.value < randomNumber) {
-            message.textContent = `👇 too low`;
-            decrease();
-            myNumber.focus();
+            message.textContent = `too low!`;
+            decAndFocus();
+            clearInput();
         } else {
             message.textContent = `🎁 Congratulations `
             square.textContent = randomNumber;
             correct();
         }
     }
-    clearInput();
-}
 
+}
 // Clear the input if the answer is wrong.
 function clearInput() {
     myNumber.value = '';
@@ -80,7 +79,6 @@ function correct() {
         localStorage.number = score.textContent;
         bigScore.textContent = score.textContent;
     }
-
     // Event to play again.
     const reload = document.querySelector(".reload");
     reload.style.display = 'block';
@@ -94,3 +92,8 @@ function reloadAndClear() {
     bigScore.textContent = `0`;
 }
 
+// Decrease And Focus 
+function decAndFocus() {
+    decrease();
+    myNumber.focus();
+}
