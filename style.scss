@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+  color: white;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #333;
+}
+%btn {
+  background-color: #ddd;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  margin-left: 8px;
+  &:hover {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    background-color: #eee;
+    cursor: pointer;
+  }
+}
+header {
+  margin: 50px auto 0;
+
+  .again {
+    @extend %btn;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgb(235, 235, 0);
+    &:hover {
+      background-color: rgb(255, 196, 0);
+    }
+  }
+  h1 {
+    width: fit-content;
+    margin: auto;
+  }
+  p {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .number {
+    text-align: center;
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: #333;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 40px auto;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 3px;
+      width: 48vw;
+      background-color: white;
+      top: 50%;
+      z-index: -1;
+    }
+    &::before {
+      left: -47vw;
+    }
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+
+  .left {
+    position: relative;
+    .reload {
+      display: none;
+      @extend %btn;
+      background-color: rgb(238, 97, 97);
+      color: #eee;
+      top: -50px;
+      border-radius: 6px;
+      position: absolute;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
+      margin: 0;
+      opacity: 0.7;
+      &:hover {
+        background-color: rgb(238, 97, 97);
+        opacity: 1;
+      }
+    }
+    .guess {
+      display: block;
+      text-align: center;
+      width: 80px;
+      height: 40px;
+      padding-left: 15px;
+      margin-bottom: 10px;
+      border: 2px solid #ddd;
+      background-color: transparent;
+      &:focus {
+        outline: 0;
+        box-shadow: 0 0 5px 1px white;
+      }
+    }
+    .btn {
+      @extend %btn;
+    }
+  }
+  .right {
+    .message {
+      font-size: 20px;
+    }
+    .label-score {
+      margin: 15px 0 5px 0;
+      font-size: 14px;
+    }
+    .label-highscore {
+      font-size: 14px;
+    }
+  }
+}
