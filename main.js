@@ -10,7 +10,7 @@ const message = document.querySelector(".message");
 const score = document.querySelector(".score");
 const labelScore = document.querySelector(".label-score");
 const highScore = document.querySelector(".label-highscore");
-const again = document.querySelector(".again");
+const clear = document.querySelector(".clear");
 const bigScore = document.querySelector(".big-score");
 
 /*
@@ -28,11 +28,11 @@ if (localStorage.number == null) {
 }
 
 // Making the random number.
-const randomNumber = Math.round(Number(Math.random() * 20));
+const randomNumber = Math.ceil(Number(Math.random() * 20));
 score.textContent = `20`;
 
 // Events
-again.addEventListener("click", () => reloadAndClear())
+clear.addEventListener("click", () => reloadAndClear())
 btn.addEventListener("click", () => check());
 
 // The main function.
@@ -53,7 +53,6 @@ function check() {
             correct();
         }
     }
-
 }
 // Clear the input if the answer is wrong.
 function clearInput() {
@@ -79,11 +78,12 @@ function correct() {
         localStorage.number = score.textContent;
         bigScore.textContent = score.textContent;
     }
-    // Event to play again.
-    const reload = document.querySelector(".reload");
-    reload.style.display = 'block';
-    reload.onclick = function () { location.reload() }
+
+    btn.textContent = 'try again';
+    btn.style.margin = 'auto';
+    btn.onclick = function () { location.reload() }
 }
+
 
 // Reload the application and clear the local storage => highscore[0].
 function reloadAndClear() {

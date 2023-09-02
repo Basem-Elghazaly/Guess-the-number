@@ -11,15 +11,16 @@ body {
   background-color: #333;
 }
 
-main .left .btn, main .left .reload, header .again {
+main .left .btn, header .clear {
   background-color: #ddd;
   color: #333;
   border: none;
   padding: 5px 10px;
   font-weight: bold;
   margin-left: 8px;
+  font-size: 26px;
 }
-main .left .btn:hover, main .left .reload:hover, header .again:hover {
+main .left .btn:hover, header .clear:hover {
   transform: scale(1.05);
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
@@ -30,15 +31,15 @@ main .left .btn:hover, main .left .reload:hover, header .again:hover {
 }
 
 header {
-  margin: 50px auto 0;
+  margin: 80px auto 0;
 }
-header .again {
+header .clear {
   position: absolute;
   top: 10px;
   left: 10px;
   background-color: rgb(235, 235, 0);
 }
-header .again:hover {
+header .clear:hover {
   background-color: rgb(255, 196, 0);
 }
 header h1 {
@@ -46,17 +47,31 @@ header h1 {
   width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+  font-size: 40px;
 }
-@media (max-width: 300px) {
+@media (max-width: 450px) {
   header h1 {
-    font-size: 26px;
+    font-size: 30px;
     text-align: center;
   }
 }
-header p {
+header .between {
   position: absolute;
   top: 10px;
   right: 10px;
+  color: rgb(121, 190, 255);
+  font-weight: bold;
+}
+@media (max-width: 450px) {
+  header .between {
+    top: 220px;
+    left: 0;
+  }
+}
+@media (max-width: 275px) {
+  header .between {
+    top: 260px;
+  }
 }
 header .number {
   text-align: center;
@@ -65,7 +80,6 @@ header .number {
   height: 50px;
   background-color: white;
   color: #333;
-  font-size: 22px;
   font-weight: bold;
   margin: 40px auto;
   position: relative;
@@ -88,40 +102,20 @@ main {
   justify-content: center;
   gap: 50px;
 }
-@media (max-width: 300px) {
+@media (max-width: 450px) {
   main {
-    flex-wrap: wrap;
+    flex-direction: column;
     text-align: center;
   }
-}
-main .left {
-  position: relative;
-}
-main .left .reload {
-  display: none;
-  position: absolute;
-  top: -50px;
-  margin: 0;
-  opacity: 0.7;
-  color: #eee;
-  background-color: rgb(238, 97, 97);
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-}
-main .left .reload:hover {
-  background-color: rgb(238, 97, 97);
-  opacity: 1;
 }
 main .left .guess {
   display: block;
   text-align: center;
-  width: 80px;
-  height: 40px;
+  width: 120px;
+  height: 60px;
   padding-left: 8px;
   margin-bottom: 10px;
+  font-size: 30px;
   border: 2px solid #ddd;
   background-color: transparent;
 }
@@ -129,28 +123,40 @@ main .left .guess:focus {
   outline: 0;
   box-shadow: 0 0 5px 1px white;
 }
-@media (max-width: 300px) {
+@media (max-width: 450px) {
   main .left .guess {
     padding-left: 12px;
+    margin: 15px auto;
   }
 }
-@media (max-width: 300px) {
+main .left .btn {
+  width: 150px;
+}
+@media (min-width: 451px) {
   main .left .btn {
-    margin: 0;
+    margin-left: -15px;
   }
 }
-@media (max-width: 300px) {
-  main .right {
-    margin-top: -20px;
+main .left .btn:hover {
+  background-color: rgb(255, 196, 0);
+}
+@media (max-width: 450px) {
+  main .left .btn {
+    margin: auto;
   }
 }
 main .right .message {
-  font-size: 20px;
+  font-size: 30px;
 }
 main .right .label-score {
-  margin: 15px 0 5px 0;
-  font-size: 14px;
+  margin: 20px 0 10px 0;
+  font-size: 26px;
 }
 main .right .label-highscore {
-  font-size: 14px;
+  font-size: 26px;
+}
+@media (max-width: 450px) {
+  main .right {
+    margin-top: -20px;
+  }
 }/*# sourceMappingURL=style.css.map */
