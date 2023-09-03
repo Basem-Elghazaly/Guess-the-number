@@ -3,147 +3,189 @@
   padding: 0;
   margin: 0;
   text-transform: capitalize;
-  color: white; }
+  color: white;
+  overflow: hidden;
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url(./games_guess_the_number.png);
   background-size: contain;
   background-position: center;
-  overflow: hidden; }
-  body .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.882);
-    z-index: -1; }
+  overflow: hidden;
+}
+body .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.882);
+  z-index: -1;
+}
 
-header .clear, main .left .btn {
+main .left .btn, header .clear {
   background-color: #ddd;
   color: #333;
   border: none;
   padding: 5px 10px;
   font-weight: bold;
   margin-left: 8px;
-  font-size: 26px; }
-  header .clear:hover, main .left .btn:hover {
-    transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    -o-transform: scale(1.05);
-    background-color: #eee;
-    cursor: pointer; }
+  font-size: 26px;
+}
+main .left .btn:hover, header .clear:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  background-color: #eee;
+  cursor: pointer;
+}
 
 header {
-  margin: 80px auto 0; }
-  header .clear {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #ebeb00; }
-    header .clear:hover {
-      background-color: #ffc400; }
+  margin: 80px auto 0;
+}
+header .clear {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgb(235, 235, 0);
+}
+header .clear:hover {
+  background-color: rgb(255, 196, 0);
+}
+header h1 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  font-size: 40px;
+}
+@media (max-width: 450px) {
   header h1 {
-    width: fit-content;
-    margin: auto;
-    font-size: 40px; }
-    @media (max-width: 450px) {
-      header h1 {
-        font-size: 28px;
-        text-align: center; } }
-  header .between {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #79beff;
-    font-size: 18px;
-    font-weight: bold; }
-    @media (max-width: 450px) {
-      header .between {
-        top: 265px;
-        left: 20px; } }
-    @media (max-width: 255px) {
-      header .between {
-        top: 300px;
-        font-size: 16px;
-        text-align: center; } }
-  header .number {
+    font-size: 28px;
     text-align: center;
-    line-height: 100px;
-    width: 100px;
-    height: 100px;
-    font-size: 50px;
-    background-color: white;
-    color: #333;
-    font-weight: bold;
-    margin: 40px auto;
-    position: relative; }
-    header .number::before, header .number::after {
-      content: "";
-      position: absolute;
-      height: 3px;
-      width: 48vw;
-      background-color: white;
-      top: 50%;
-      z-index: -1; }
-    header .number::before {
-      left: -47vw; }
+  }
+}
+header .between {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: rgb(121, 190, 255);
+  font-size: 18px;
+  font-weight: bold;
+}
+@media (max-width: 450px) {
+  header .between {
+    top: 265px;
+    left: 20px;
+  }
+}
+@media (max-width: 255px) {
+  header .between {
+    top: 300px;
+    font-size: 16px;
+    text-align: center;
+  }
+}
+header .number {
+  text-align: center;
+  line-height: 100px;
+  width: 100px;
+  height: 100px;
+  font-size: 50px;
+  background-color: white;
+  color: #333;
+  font-weight: bold;
+  margin: 40px auto;
+  position: relative;
+}
+header .number::before, header .number::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 48vw;
+  background-color: white;
+  top: 50%;
+  z-index: -1;
+}
+header .number::before {
+  left: -47vw;
+}
 
 main {
   display: flex;
   justify-content: center;
-  gap: 50px; }
-  @media (max-width: 450px) {
-    main {
-      flex-direction: column;
-      text-align: center; } }
-  main .left .guess {
-    display: block;
+  gap: 50px;
+}
+@media (max-width: 450px) {
+  main {
+    flex-direction: column;
     text-align: center;
-    width: 120px;
-    height: 60px;
-    padding-left: 8px;
-    margin-bottom: 30px;
-    font-size: 30px;
-    border: 2px solid #ddd;
-    background-color: transparent; }
-    main .left .guess:focus {
-      outline: 0;
-      box-shadow: 0 0 5px 1px white; }
-    @media (max-width: 450px) {
-      main .left .guess {
-        margin: 25px auto;
-        font-size: 22px; } }
+  }
+}
+main .left .guess {
+  display: block;
+  text-align: center;
+  width: 120px;
+  height: 60px;
+  padding-left: 8px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  border: 2px solid #ddd;
+  background-color: transparent;
+}
+main .left .guess:focus {
+  outline: 0;
+  box-shadow: 0 0 5px 1px white;
+}
+@media (max-width: 450px) {
+  main .left .guess {
+    margin: 25px auto;
+    font-size: 22px;
+  }
+}
+main .left .btn {
+  width: 150px;
+}
+@media (min-width: 451px) {
   main .left .btn {
-    width: 150px; }
-    @media (min-width: 451px) {
-      main .left .btn {
-        margin-left: -15px; } }
-    main .left .btn:hover {
-      background-color: #ffc400; }
-    @media (max-width: 450px) {
-      main .left .btn {
-        margin: auto; } }
+    margin-left: -15px;
+  }
+}
+main .left .btn:hover {
+  background-color: rgb(255, 196, 0);
+}
+@media (max-width: 450px) {
+  main .left .btn {
+    margin: auto;
+  }
+}
+main .right .message {
+  font-size: 30px;
+}
+@media (max-width: 450px) {
   main .right .message {
-    font-size: 30px; }
-    @media (max-width: 450px) {
-      main .right .message {
-        font-size: 22px; } }
+    font-size: 22px;
+  }
+}
+main .right .label-score {
+  margin: 20px 0 10px 0;
+  font-size: 26px;
+}
+@media (max-width: 450px) {
   main .right .label-score {
-    margin: 20px 0 10px 0;
-    font-size: 26px; }
-    @media (max-width: 450px) {
-      main .right .label-score {
-        font-size: 22px; } }
+    font-size: 22px;
+  }
+}
+main .right .label-highscore {
+  font-size: 26px;
+}
+@media (max-width: 450px) {
   main .right .label-highscore {
-    font-size: 26px; }
-    @media (max-width: 450px) {
-      main .right .label-highscore {
-        font-size: 22px; } }
-
-/*# sourceMappingURL=style.css.map */
+    font-size: 22px;
+  }
+}/*# sourceMappingURL=style.css.map */
